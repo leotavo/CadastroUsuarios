@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro de Usuários</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function validateForm() {
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !validateEmail(email)) {
+                alert("E-mail inválido.");
+                return false;
+            }
+
+            if (!password) {
+                alert("A senha é obrigatória.");
+                return false;
+            }
+
+            // Adicione mais validações conforme necessário
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <canvas id="matrix-background"></canvas>
+    <div class="container">
+        <h1>Sistema de Cadastro de Usuários</h1>
+        <form action="/login" method="post" class="login-form" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">E-mail</label>
+                <input type="text" name="username" placeholder="Usuário" required id="username" maxlength="50" 
+                       oninvalid="this.setCustomValidity('O e-mail não pode estar vazio.')" 
+                       oninput="this.setCustomValidity('')">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" name="password" placeholder="Senha" required id="password" 
+                       oninvalid="this.setCustomValidity('A senha é obrigatória.')" 
+                       oninput="this.setCustomValidity('')">
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="links">
+            <a href="/register">Criar Conta</a>
+            <a href="/forgot-password">Esqueceu a Senha?</a>
+        </div>
+        <div class="social-login">
+            <button class="google-button">Entrar com Google</button>
+            <button class="facebook-button">Entrar com Facebook</button>
+        </div>
+    </div>
+    <div class="developer-info">
+        <p>Leonardo Trindade | Email: leotavo@gmail.com | <a href="https://github.com/seurepositorio" target="_blank">Github</a></p>
+    </div>
+    <script src="/js/matrix.js"></script>
+</body>
+</html>

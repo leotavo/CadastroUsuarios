@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+#matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    text-align: left; /* Alinhamento à esquerda para os labels */
+}
+
+.form-group {
+    display: flex; /* Usar flexbox para alinhar os labels e inputs */
+    align-items: center; /* Centralizar verticalmente os itens */
+    margin: 10px 0; /* Espaçamento entre os grupos */
+}
+
+.login-form label {
+    font-size: 14px; /* Tamanho da fonte dos labels */
+    margin-right: 10px; /* Espaço entre o label e o campo */
+    width: 80px; /* Largura fixa para os labels */
+}
+
+.login-form input {
+    flex: 1; /* O campo de entrada ocupará o espaço restante */
+    padding: 8px;
+    margin: 0; /* Remove a margem para alinhar melhor */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.google-button, .facebook-button {
+    width: 48%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.google-button {
+    background-color: #db4437;
+    color: white;
+}
+
+.facebook-button {
+    background-color: #4267B2;
+    color: white;
+}
+
+.developer-info {
+    position: absolute; /* Para que fique na parte inferior */
+    bottom: 20px; /* Distância do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    font-size: 12px;
+    color: #ccc;
+    text-align: center; /* Centraliza o texto */
+}
