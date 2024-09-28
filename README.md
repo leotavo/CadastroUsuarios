@@ -4,12 +4,12 @@ Este projeto é um sistema de cadastro de usuários desenvolvido utilizando Spri
 
 ## Funcionalidades
 
-- Cadastro de novos usuários.
-- Autenticação de usuários com validação de senha. - OK
-- Criptografia de senha. - OK
-- Interface de login com validação e animações. - OK
-- Recuperação de senha.
-- Integração com o banco de dados PostgreSQL. - OK
+- **Cadastro de novos usuários.**
+- **Autenticação de usuários com validação de senha.** ✅
+- **Criptografia de senha.** ✅
+- **Interface de login com validação e animações.** ✅
+- **Recuperação de senha.**
+- **Integração com o banco de dados PostgreSQL.** ✅
 
 ## Tecnologias Utilizadas
 
@@ -30,24 +30,71 @@ Este projeto é um sistema de cadastro de usuários desenvolvido utilizando Spri
 ## Como Executar o Projeto
 
 1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/leotavo/CadastroUsuarios.git
-   cd CadastroUsuarios
+      ```bash
+         git clone https://github.com/leotavo/CadastroUsuarios.git
+         cd CadastroUsuarios
 
-2. Configure o banco de dados:
+3. **Configure o banco de dados**:
+   - Crie um banco de dados no PostgreSQL ou em outro banco de sua escolha.
+   - Configure as credenciais do banco de dados no arquivo `application.properties` que está localizado no diretório `src/main/resources`:
+        ```properties
+        spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
+        spring.datasource.username=seu_usuario
+        spring.datasource.password=sua_senha
 
-Crie um banco de dados no PostgreSQL ou outro de sua escolha.
-Configure as credenciais do banco de dados no arquivo application.properties:
+   ** Outras configurações importantes no application.properties:
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
+   - **spring.jpa.hibernate.ddl-auto**: Define como o Hibernate deve gerenciar o esquema do banco de dados. Para desenvolvimento, você pode usar `update` para atualizar o esquema automaticamente.
+        ```properties
+        spring.jpa.hibernate.ddl-auto=update
 
-3. Execute o projeto:
-No Eclipse/IntelliJ, ou pelo terminal, execute a classe principal CadastroUsuariosApplication.java.
+   - **spring.jpa.show-sql**: Habilita a exibição de consultas SQL no console. Útil para depuração.
+        ```properties
+        spring.jpa.show-sql=true
 
-4. Acesse a aplicação:
-Abra o navegador e vá para http://localhost:8080.
+   - **spring.thymeleaf.cache**: Desabilita o cache do Thymeleaf em ambiente de desenvolvimento.
+        ```properties
+        spring.thymeleaf.cache=false
+
+4. **Testando a Aplicação**:
+= Após configurar e executar a aplicação, você pode testar as funcionalidades utilizando ferramentas como Postman ou Insomnia. Aqui estão alguns exemplos de como utilizar os endpoints da API:
+
+   3.1 Cadastrar um novo usuário:
+      - Endpoint: POST /usuarios/cadastro
+         ```Body:
+         {
+           "nome": "novo_usuario",
+           "senha: "senha_secreta",
+           "email": "usuario@example.com"
+         }
+
+   3.2 Autenticar um usuário:
+      - Endpoint: POST /login
+         ```Body:
+         {
+           "email: "usuario@example.com"",
+           "senha": "senha_secreta"
+         }
+
+   3.3 Recuperar detalhes de um usuário:
+      - Endpoint: GET /usuarios/{id}
+
+   3.4 Atualizar informações de um usuário:
+      - Endpoint: PUT /usuarios/{id}
+         ```Body:
+         {
+            "nome": "usuario_atualizado",
+            "email": "usuario_atualizado@example.com"
+            "senha": "nova_senha"
+         }
+
+   3.5 Remover um usuário:
+      - Endpoint: DELETE /usuarios/{id}
 
 
+## Contato
+Para mais informações ou sugestões, entre em contato:
+
+Nome: Leonardo Trindade
+Email: leotavo@gmail.com
 
